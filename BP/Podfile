@@ -1,0 +1,27 @@
+platform :ios, '10.0'
+target "BP" do
+    pod 'AFNetworking', '~> 3.2.0'
+    pod 'SDWebImage', '~> 4.0.0'
+    pod 'IQKeyboardManager', '~> 6.2.0'
+    pod 'MJRefresh', '~> 3.1.15.7'
+    pod 'MJExtension'
+    pod 'SVProgressHUD'
+    pod 'YYKit'
+    pod 'TZImagePickerController'
+    pod 'JKCategories'
+
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+

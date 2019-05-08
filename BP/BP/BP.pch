@@ -1,0 +1,147 @@
+//
+//  BP.pch
+//  BP
+//
+//  Created by sm on 2019/5/8.
+//  Copyright © 2019 cyc. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#ifndef BP_pch
+#define BP_pch
+
+
+#import <MJExtension.h>
+#import <SVProgressHUD.h>
+#import "UIButton+Action.h"
+#import "UIImageView+Action.h"
+#import "UITextField+Action.h"
+#import "CYC666.h"
+#import "BaseRTNavigationController.h"
+#import "AppDelegate.h"
+#import "WebViewComtroller.h"
+#import <YYTimer.h>
+#import "MainTabBarController.h"
+#import "LocalAuthentication/LAContext.h"
+#import "LocalAuthentication/LAError.h"
+#import "MJRefresh.h"
+#import <UIImageView+WebCache.h>
+#import <JKUIKit.h>
+
+
+// 多语言
+#define LocalizedString(key) NSLocalizedStringFromTable(key, @"BP", nil)
+
+
+#define kDelegate (AppDelegate *)[UIApplication sharedApplication].delegate
+
+
+// 提示窗
+#define SHOW_ERROR(msg)   [SVProgressHUD showErrorWithStatus:msg];[SVProgressHUD dismissWithDelay:1];
+#define SHOW_SUCCESS(msg) [SVProgressHUD showSuccessWithStatus:msg];[SVProgressHUD dismissWithDelay:1];
+#define SHOW_INFO(msg)    [SVProgressHUD showWithStatus:msg];
+#define SHOW_SVP          [SVProgressHUD show];
+#define SHOW_DISMISS      [SVProgressHUD dismiss];
+
+// 是否为空
+#define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || [str isEqualToString:@"<null>"] || str == nil || [str length] < 1 ? YES : NO )
+#define kArrayIsEmpty(array) (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)
+#define kDictIsEmpty(dic) (dic == nil || [dic isKindOfClass:[NSNull class]] || dic.allKeys == 0)
+#define kObjectIsEmpty(_object) (_object == nil \
+|| [_object isKindOfClass:[NSNull class]] \
+|| ([_object respondsToSelector:@selector(length)] && [(NSData *)_object length] == 0) \
+|| ([_object respondsToSelector:@selector(count)] && [(NSArray *)_object count] == 0))
+
+// 颜色
+#define CRGB(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+#define UIColorFromHexA(hexValue, a)     [UIColor colorWithRed:(((hexValue & 0xFF0000) >> 16))/255.0f green:(((hexValue & 0xFF00) >> 8))/255.0f blue:((hexValue & 0xFF))/255.0f alpha:a]
+#define UIColorFromHex(hexValue)        UIColorFromHexA(hexValue, 1.0f)
+#define Publie_Color UIColorFromHex(0x2287BD)
+#define Background_Color UIColorFromHex(0xEEEEEE)
+#define SVP_Color UIColorFromHex(0xE0E0E0)
+#define White_Color UIColorFromHex(0xFFFFFF)
+#define Black_Color UIColorFromHex(0x000000)
+#define Label_Color_A UIColorFromHex(0x333333)
+#define Label_Color_B UIColorFromHex(0x666666)
+#define Label_Color_C UIColorFromHex(0x999999)
+
+// 字体
+#define PF_Medium(S) [UIFont fontWithName:@"PingFangSC-Medium" size:S]
+#define PF_Regular(S) [UIFont fontWithName:@"PingFangSC-Regular" size:S]
+#define PF_Semibold(S) [UIFont fontWithName:@"PingFangSC-Semibold" size:S]
+#define FontA [UIFont fontWithName:@"PingFangSC-Medium" size:17]
+#define FontB [UIFont fontWithName:@"PingFangSC-Medium" size:15]
+#define FontC [UIFont fontWithName:@"PingFangSC-Medium" size:13]
+#define FontD [UIFont fontWithName:@"PingFangSC-Regular" size:17]
+#define FontE [UIFont fontWithName:@"PingFangSC-Regular" size:15]
+#define FontF [UIFont fontWithName:@"PingFangSC-Regular" size:13]
+
+
+// 快速设置
+#define CImage(name) [UIImage imageNamed:name]
+
+
+// 状态栏
+#define Status_Light [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+#define Status_Dark [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
+
+/**
+ 手机类型
+ */
+#define  IS_IPHONE (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone)
+#define  SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH,SCREEN_HEIGHT))
+#define  IS_IPHONE_4 (IS_IPHONE && SCREEN_MAX_LENGTH<568.0)
+#define  IS_IPHONE__5 (IS_IPHONE && SCREEN_MAX_LENGTH==568.0)
+#define  IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH==667.0)
+#define  IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH==736.0)
+#define  Is_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//状态栏+导航栏高度
+#define StatueHeight [UIApplication sharedApplication].statusBarFrame.size.height
+#define Nav_Height  (StatueHeight>20?88:64)
+#define TabBarHeight (StatueHeight>20?83:49)
+#define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif
+#endif /* BP_pch */
